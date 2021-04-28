@@ -17,8 +17,8 @@ class hashTable {
 
   public:
     hashTable();
+    ~hashTable();
     void insert(int k, std::string v);
-    void update(int k, std::string v);
     std::string search(int k);
     void remove(int k);
 };

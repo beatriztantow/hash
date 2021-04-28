@@ -8,12 +8,20 @@ hashTable::hashTable() {
 
 };
 
+hashTable::~hashTable() {
+  for (int i = 0; i < HASH_SIZE; i++) {
+    if (table[i]) {
+      delete table[i];
+    }
+  }
+};
+
 
 int hashTable::hash(int k, int i) {
   if (i == HASH_SIZE) {
       throw tableTotallyVisitedException();
   }
-  return ((k % HASH_SIZE) + 1) % HASH_SIZE;
+  return ((k % HASH_SIZE) + i) % HASH_SIZE;
 };
 
 void hashTable::insert(int k, std::string v) {

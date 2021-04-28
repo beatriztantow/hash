@@ -1,5 +1,6 @@
 run-test: test
 	./build/testHashTable
+	valgrind ./build/testHashTable
 
 run: output
 	./build/output

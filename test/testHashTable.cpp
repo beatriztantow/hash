@@ -2,15 +2,22 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <memory>
 
 #include "../src/include/hashTable.hpp"
 #include "../src/include/hashTableExceptions.hpp"
 
 int main() {
 
-  hashTable *h = new hashTable();
+  std::unique_ptr<hashTable> h = std::make_unique<hashTable>();
 
   std::string cores[] = {"Vermelho", "Laranja", "Amarelo", "Verde", "Ciano", "Anil", "Magenta"};
+
+  h->insert(0,"batata");
+  h->insert(7,"potato");
+  
+  h->remove(0);
+  h->remove(7);
 
   for (int i = 0; i < 7; i++) {
     h->insert(i, cores[i]);
